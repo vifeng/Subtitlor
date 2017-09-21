@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Test</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>EditSubtitle</servlet-name>
+    <servlet-class>com.subtitlor.servlets.EditSubtitle</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditSubtitle</servlet-name>
+    <url-pattern>/edit</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>Home</servlet-name>
+    <servlet-class>com.subtitlor.servlets.Home</servlet-class>
+    <multipart-config>
+			<location>/Users/Virg/git/Subtitlor/Subtitlor/WebContent/WEB-INF/uploads/tmp/</location> 
+			<!-- // A adapter à votre installation (Dans l'onglet package Explorer, faire un clique droit sur le dossier upload/tmp, qui est dans WEB-INF,
+	//  puis faire show in - Terminal dans l'onglet terminal taper : pwd - le chemin du dossier s'affiche, copiez le ci dessus dans location et y ajouter le "/" à la fin)--> 
+			
+			<max-file-size>10485760</max-file-size> <!-- 10 Mo -->
+			<max-request-size>52428800</max-request-size> <!-- 5 x 10 Mo -->
+			<file-size-threshold>1048576</file-size-threshold> <!-- 1 Mo -->
+		</multipart-config>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Home</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  <jsp-config>
+    <jsp-property-group>
+      <url-pattern>*.jsp</url-pattern>
+      <include-prelude>/WEB-INF/taglibs.jsp</include-prelude>
+    </jsp-property-group>
+  </jsp-config>
+</web-app>
